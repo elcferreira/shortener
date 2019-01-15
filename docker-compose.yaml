@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  nuxt:
+    build: ./
+    container_name: shortener-link
+    restart: always
+    ports:
+      - "3000:3000"
+    command:
+      "yarn start"
+
+  nginx:
+    image: nginx:1.13
+    container_name: shortener-link-ngix
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - nuxt

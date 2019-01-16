@@ -12,15 +12,16 @@ export default {
       const newView = currentView+1
       return this.$axios.$put(`${process.env.api}/links/${this.$route.path.replace(/\//g, '')}/views`, {value: newView})
     }
-    
   },
   mounted () {
     const updateView = this.updadeView
     this.getShorten()
       .then(res => {
         const { url, views: { value } } = res.result
+        console.log(value, url, '=== views and url')
         updateView(parseInt(value))
           .then(response => {
+            console.log(url, '=== redirect')
              window.location = url
           })
       })

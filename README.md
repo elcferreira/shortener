@@ -5,8 +5,8 @@
 ## The Stack
 This project uses Nuxt.JS that is a Vue.js framework. My choice to this framework is because is pretty easy to build a fast app and fine-tuning the experience without much complexity.
 
-## The Demo
- >  > [here](https://upbeat-benz-adaaf9.netlify.com/)
+## The demo
+[DEMO](http://shortener.leopoldo.me/)
 
 ## Build Setup
 

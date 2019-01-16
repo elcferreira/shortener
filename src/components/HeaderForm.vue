@@ -69,7 +69,6 @@ export default {
           this.formLoading = false
           this.inputUrl = ''
         })
-        })
     }
   },
   computed: {

@@ -10,10 +10,11 @@
         >
       <button 
         tile="Shorten here" 
-        class="header-form__button"
+        :class="{ 'header-form__button': true, 'header-form__button--loading': formLoading }"
         :disabled="inputError"
         >
           <span class="header-form__button-text">Shorten here</span>
+          <div class="header-form__button-loading" />
         </button>
       <transition name="header-form__error">
         <span v-if="inputError && !firstInput" class="header-form__error">Unavailable URL</span>
@@ -33,7 +34,8 @@ export default {
   data () {
     return {
       inputUrl: '',
-      firstInput: true
+      firstInput: true,
+      formLoading: false
     }
   },
   methods: {
@@ -45,6 +47,9 @@ export default {
     },
     onSubmit (e) {
       e.preventDefault()
+      this.formLoading = true
+      this.firstInput = true
+      this.inputUrl = ''
       const url = verifyProtocol(this.inputUrl)
       const data = {
         shorten: getRandom(),
@@ -56,14 +61,12 @@ export default {
         .then(title => {
           data.title = title
           this.saveUrl(data)
-          this.inputUrl = ''
-          this.firstInput = true
+          this.formLoading = false
         })
         .catch(err => {
           data.title = data.shorten
           this.saveUrl(data)
-          this.inputUrl = ''
-          this.firstInput = true
+          this.formLoading = false
         })
     }
   },
@@ -101,6 +104,7 @@ $ease : cubic-bezier(0.7, 0.04, 0.25, 1)
       width: calc(65% - 15px)
 
   &__button
+    $b : &
     width: 100%
     display: block
     border-radius: 4px
@@ -142,9 +146,30 @@ $ease : cubic-bezier(0.7, 0.04, 0.25, 1)
       width: 35%
       margin-top: 0px
 
+    &-loading
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      border-color: black transparent
+      border-width: 1px
+      border-style: solid
+      position: absolute
+      top: 50%
+      left: 50%
+      opacity: 0
+      animation: rotate 2s ease-in-out 0s infinite
+
     &-text
       position: relative
       z-index: 1
+      opacity: 1
+      transition: .32s ease
+
+    &--loading
+      #{$b}-loading
+        opacity: 1
+      #{$b}-text
+        opacity: 0
 
   &__error
     position: absolute
@@ -171,6 +196,13 @@ $ease : cubic-bezier(0.7, 0.04, 0.25, 1)
       &-to
         transform: translateY(0%)
         opacity: 0
-    
+
+
+@keyframes rotate
+  1%, 100%
+    transform: translate(-50%, -50%) rotate(0deg)
+
+  50%
+    transform: translate(-50%, -50%) rotate(360deg)
 
 </style>

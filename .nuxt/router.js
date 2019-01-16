@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _7b6cfcf4 = () => interopDefault(import('../src/pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _72481b01 = () => interopDefault(import('../src/pages/_.vue' /* webpackChunkName: "pages/_" */))
 
 Vue.use(Router)
 
@@ -65,6 +66,10 @@ export function createRouter() {
       path: "/",
       component: _7b6cfcf4,
       name: "index"
+    }, {
+      path: "/*",
+      component: _72481b01,
+      name: "all"
     }],
 
     fallback: false

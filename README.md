@@ -46,4 +46,6 @@ When the user inputs the URL is made a verify to detect if it is a real URL and 
 ### Count page view
 When the shorten link is accessed save the page views
 
+### Loading
+When the user shorten the url, added a loader to prevent multiples clicks and lazy internet
 

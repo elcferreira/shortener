@@ -6,11 +6,11 @@
 export default {
   methods: {
     getShorten() {
-      return this.$axios.$get(`${process.env.api}/links/${this.$route.params.shorten}`)
+      return this.$axios.$get(`${process.env.api}/links/${this.$route.path.replace(/\//g, '')}`)
     },
     updadeView(currentView) {
       const newView = currentView+1
-      return this.$axios.$put(`${process.env.api}/links/${this.$route.params.shorten}/views`, {value: newView})
+      return this.$axios.$put(`${process.env.api}/links/${this.$route.path.replace(/\//g, '')}/views`, {value: newView})
     }
     
   },

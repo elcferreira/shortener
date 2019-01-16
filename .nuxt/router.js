@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _5ccbc2dd = () => interopDefault(import('../src/pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _7b6cfcf4 = () => interopDefault(import('../src/pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _519a79b4 = () => interopDefault(import('../src/pages/_shorten.vue' /* webpackChunkName: "pages/_shorten" */))
 
 Vue.use(Router)
 
@@ -63,8 +64,12 @@ export function createRouter() {
 
     routes: [{
       path: "/",
-      component: _5ccbc2dd,
+      component: _7b6cfcf4,
       name: "index"
+    }, {
+      path: "/:shorten",
+      component: _519a79b4,
+      name: "shorten"
     }],
 
     fallback: false

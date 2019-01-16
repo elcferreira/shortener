@@ -1,4 +1,14 @@
 {
-    "rules": {},
-    "extends": "plugin:vue/essential"
+  "rules": {},
+  "extends": "plugin:vue/essential",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true
+  }
 }

@@ -4,6 +4,19 @@
   </div>
 </template>
 
+<script>
+import setCookie from '~/assets/scripts/helpers/setCookie.js'
+import getCookie from '~/assets/scripts/helpers/getCookie.js'
+import getRandom from '~/assets/scripts/helpers/getRandom.js'
+
+export default {
+  mounted () {
+    const sessionUser = getCookie('session-user')
+    !sessionUser && setCookie('session-user', getRandom(), 7)
+  }
+}
+</script>
+
 <style>
 html {
   font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;

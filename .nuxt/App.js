@@ -1,15 +1,13 @@
 import Vue from 'vue'
-import NuxtLoading from './components/nuxt-loading.vue'
 
 import _6f6c098b from '../src/layouts/default.vue'
 
 const layouts = { "_default": _6f6c098b }
 
 export default {
-  head: {"title":"ShortenerLink","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"An app to shortner links"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:400,700"}],"style":[],"script":[]},
+  head: {"title":"ShortenerLink","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"An app to shortner links"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:400,900"}],"style":[],"script":[]},
 
   render(h, props) {
-    const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')
     const templateEl = h('div', {
       domProps: {
@@ -38,7 +36,7 @@ export default {
         id: '__nuxt'
       }
     }, [
-      loadingEl,
+
       transitionEl
     ])
   },
@@ -60,21 +58,7 @@ export default {
     this.error = this.nuxt.error
   },
 
-  mounted() {
-    this.$loading = this.$refs.loading
-  },
-  watch: {
-    'nuxt.err': 'errorChanged'
-  },
-
   methods: {
-    errorChanged() {
-      if (this.nuxt.err && this.$loading) {
-        if (this.$loading.fail) this.$loading.fail()
-        if (this.$loading.finish) this.$loading.finish()
-      }
-    },
-
     setLayout(layout) {
       if(layout && typeof layout !== 'string') throw new Error('[nuxt] Avoid using non-string value as layout property.')
 
@@ -93,6 +77,5 @@ export default {
     }
   },
   components: {
-    NuxtLoading
   }
 }

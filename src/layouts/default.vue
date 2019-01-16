@@ -12,7 +12,7 @@ import getRandom from '~/assets/scripts/helpers/getRandom.js'
 export default {
   mounted () {
     const sessionUser = getCookie('session-user')
-    !sessionUser && setCookie('session-user', getRandom(), 7)
+    !sessionUser && setCookie('session-user', getRandom(), 30)
   }
 }
 </script>

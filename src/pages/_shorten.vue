@@ -14,7 +14,7 @@ export default {
     }
     
   },
-  created () {
+  mounted () {
     const updateView = this.updadeView
     this.getShorten()
       .then(res => {

@@ -1,6 +1,12 @@
-# Shortener Link
+# Shortener Link by [leopoldo.me](https://leopoldo.me)
 
 > An app to shortner links
+
+## The Stack
+This project uses Nuxt.JS that is a Vue.js framework. My choice to this framework is because is pretty easy to build a fast app and fine-tuning the experience without much complexity.
+
+## The Demo
+ >  > [here](https://leopoldo.me)
 
 ## Build Setup
 
@@ -17,6 +23,22 @@ $ yarn start
 
 # generate static project
 $ yarn run generate
+
+# ------------------------------
+
+# generate static project using DOCKER
+$ yarn build:docker
+
+# >>>> localhost:3000
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Implementations
+
+### Copy short link with click
+This function is a button that allow the use to copy to clipboard with one click.
+
+### Registrate a user session 
+Save a user session that saves the shorten url generated, and when the user access again the website, the old shorten url will appear.
+
+### Analyze the URL
+When the user inputs the URL is made a verify to detect if it is a real URL and detect if have protocols like 'https://', 'http://' or 'ftp://'

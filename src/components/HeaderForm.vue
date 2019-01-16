@@ -49,7 +49,6 @@ export default {
       e.preventDefault()
       this.formLoading = true
       this.firstInput = true
-      this.inputUrl = ''
       const url = verifyProtocol(this.inputUrl)
       const data = {
         shorten: getRandom(),
@@ -62,11 +61,14 @@ export default {
           data.title = title
           this.saveUrl(data)
           this.formLoading = false
+          this.inputUrl = ''
         })
         .catch(err => {
           data.title = data.shorten
           this.saveUrl(data)
           this.formLoading = false
+          this.inputUrl = ''
+        })
         })
     }
   },

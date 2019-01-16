@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="shorten-page">aguarde</div>
 </template>
 
 <script>
@@ -28,4 +28,7 @@ export default {
 }
 </script>
 
-<style lang="sass"></style>
+<style lang="sass">
+.shorten-page
+  color: white
+</style>
